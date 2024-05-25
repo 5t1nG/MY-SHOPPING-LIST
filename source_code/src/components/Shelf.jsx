@@ -3,6 +3,9 @@ import React from 'react';
 function Shelf({ children, addToBasket }) {
     const handleAddToBasket = (id) => {
         const itemToAdd = React.Children.toArray(children).find(child => child.props.id === id);
+        if (!itemToAdd) {
+            return;
+        }
         const clonedChild = React.cloneElement(itemToAdd, {
             buttonText: "Remove from Basket",
             onButtonClick: () => console.log("Item removed"),
@@ -11,11 +14,10 @@ function Shelf({ children, addToBasket }) {
         addToBasket(clonedChild);
     };
 
-    const shelfItems = React.Children.map(children, (child, index) =>
+    const shelfItems = React.Children.map(children, (child) =>
         React.cloneElement(child, {
-            id: index,
             buttonText: "Add to Basket",
-            onButtonClick: () => handleAddToBasket(index),
+            onButtonClick: () => handleAddToBasket(child.props.id),
             requireQuantity: false,
         })
     );
@@ -23,7 +25,7 @@ function Shelf({ children, addToBasket }) {
     const rows = groupItems(shelfItems, 3);
 
     return (
-        <div className='col d-flex flex-column align-items-center' style={{backgroundColor: 'lightblue'}}>
+        <div className='col d-flex flex-column align-items-center' style={{ backgroundColor: 'lightblue' }}>
             <p>This will be the Shelf component</p>
             {rows.map((row, rowIndex) => (
                 <div className='row w-100' key={rowIndex}>
