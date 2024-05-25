@@ -10,6 +10,23 @@ import Search from './components/Search';
 
 function App() {
     const [basketItems, setBasketItems] = useState([]);
+    const [shelfItems, setShelfItems] = useState(
+        [
+            <Item id={0} itemName="Orange" quantity={1}/>,
+            <Item id={1} itemName="Banana" quantity={1}/>,
+            <Item id={2} itemName="Milk" quantity={1}/>,
+            <Item id={3} itemName="Yoghurt" quantity={1}/>,
+            <Item id={4} itemName="Oreos" quantity={1}/>,
+        ]
+    );
+    const [shelfDisplayedItems, setShelfDisplayedItems] = useState(shelfItems);
+
+    const updateShelf = (string) => {
+        const filteredItems = shelfItems.filter(item =>
+            item.props.itemName.toLowerCase().includes(string.toLowerCase())
+        );
+        setShelfDisplayedItems(filteredItems);
+    };
 
     const addToBasket = (item) => {
         setBasketItems((prev) => {
@@ -49,13 +66,11 @@ function App() {
                 <div className='col align-items-center d-flex flex-column'>Reserved for Navigation Bar</div>
             </div>
             <div className='row justify-content-center' style={{backgroundColor: 'aquamarine'}}>
-                <Search />
+                <Search updateShelf={updateShelf}/>
             </div>
             <div className='row' style={{backgroundColor: 'peachpuff'}}>
                 <Shelf addToBasket={addToBasket}>
-                    <Item id={0} itemName="Orange" quantity={1}/>
-                    <Item id={1} itemName="Banana" quantity={1}/>
-                    <Item id={2} itemName="Milk" quantity={1}/>
+                    {shelfDisplayedItems}
                 </Shelf>
                 <Basket removeFromBasket={removeFromBasket}>
                     {basketItems.map((item, index) =>

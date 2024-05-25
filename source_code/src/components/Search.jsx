@@ -1,10 +1,19 @@
-import React, {useState, useEffect} from "react";
+import React from 'react';
 
-function Search() {
+function Search({ updateShelf }) {
     const searchBarMessage = 'Search for an item to add...';
+
+    const handleInputChange = (event) => {
+        updateShelf(event.target.value);
+    };
+
     return (
         <div className='col-md-8'>
-            <input style={{width: '100%'}} placeholder={searchBarMessage}/>
+            <input
+                style={{width: '100%'}}
+                onChange={handleInputChange}
+                placeholder={searchBarMessage}
+            />
         </div>
     );
 }

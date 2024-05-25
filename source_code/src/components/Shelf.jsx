@@ -20,14 +20,30 @@ function Shelf({ children, addToBasket }) {
         })
     );
 
+    const rows = groupItems(shelfItems, 3);
+
     return (
         <div className='col d-flex flex-column align-items-center' style={{backgroundColor: 'lightblue'}}>
             <p>This will be the Shelf component</p>
-            <div>
-                {shelfItems}
-            </div>
+            {rows.map((row, rowIndex) => (
+                <div className='row w-100' key={rowIndex}>
+                    {row.map((item, itemIndex) => (
+                        <div className='col-4' key={itemIndex}>
+                            {item}
+                        </div>
+                    ))}
+                </div>
+            ))}
         </div>
     );
 }
+
+const groupItems = (items, itemsPerRow) => {
+    const rows = [];
+    for (let i = 0; i < items.length; i += itemsPerRow) {
+        rows.push(items.slice(i, i + itemsPerRow));
+    }
+    return rows;
+};
 
 export default Shelf;
