@@ -1,4 +1,6 @@
 import React from 'react';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 function Basket({ children, removeFromBasket }) {
     const basketItems = React.Children.map(children, child =>
@@ -9,21 +11,20 @@ function Basket({ children, removeFromBasket }) {
         })
     );
 
-    const rows = groupItems(basketItems, 3);
+    const rows = groupItems(basketItems, 2);
 
     return (
-        <div className='col d-flex flex-column align-items-center' style={{ backgroundColor: 'lightpink' }}>
-            <p>This will be the Basket component</p>
+        <Col className='d-flex flex-column align-items-center overflow-auto' style={{backgroundColor: 'lightpink', height: '75vh'}}>
             {rows.map((row, rowIndex) => (
-                <div className='row w-100' key={rowIndex}>
+                <Row className='w-100' key={rowIndex} style={{marginTop: '1rem'}}>
                     {row.map((item, itemIndex) => (
-                        <div className='col-4' key={itemIndex}>
+                        <Col className='col-md-6' key={itemIndex}>
                             {item}
-                        </div>
+                        </Col>
                     ))}
-                </div>
+                </Row>
             ))}
-        </div>
+        </Col>
     );
 }
 

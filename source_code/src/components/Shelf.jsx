@@ -1,4 +1,6 @@
 import React from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function Shelf({ children, addToBasket }) {
     const handleAddToBasket = (id) => {
@@ -22,21 +24,20 @@ function Shelf({ children, addToBasket }) {
         })
     );
 
-    const rows = groupItems(shelfItems, 3);
+    const rows = groupItems(shelfItems, 2);
 
     return (
-        <div className='col d-flex flex-column align-items-center' style={{ backgroundColor: 'lightblue' }}>
-            <p>This will be the Shelf component</p>
+        <Col className='d-flex flex-column align-items-center overflow-auto' style={{ backgroundColor: 'lightblue', height: '75vh' }}>
             {rows.map((row, rowIndex) => (
-                <div className='row w-100' key={rowIndex}>
+                <Row className='w-100' key={rowIndex} style={{marginTop: '1rem'}}>
                     {row.map((item, itemIndex) => (
-                        <div className='col-4' key={itemIndex}>
+                        <Col className='col-md-6 d-flex align-items-stretch' key={itemIndex}>
                             {item}
-                        </div>
+                        </Col>
                     ))}
-                </div>
+                </Row>
             ))}
-        </div>
+        </Col>
     );
 }
 

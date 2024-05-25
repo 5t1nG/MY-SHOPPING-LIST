@@ -8,13 +8,12 @@ function Search({ updateShelf }) {
     };
 
     return (
-        <div className='col-md-8'>
             <input
-                style={{width: '100%'}}
+                style={{width: '100%', textAlign: 'center'}}
                 onChange={handleInputChange}
                 placeholder={searchBarMessage}
+                className='form-control'
             />
-        </div>
     );
 }
 

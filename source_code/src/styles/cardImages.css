@@ -1,0 +1,21 @@
+.image-container {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* Aspect ratio 1:1 */
+    overflow: hidden;
+}
+
+.image-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    width: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Ensures the image covers the container */
+}
+
+.image-container img.landscape {
+    width: 100%;
+    height: auto;
+}
