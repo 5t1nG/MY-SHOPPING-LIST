@@ -10,8 +10,6 @@ function Item(props) {
     const [unit, setUnit] = useState(props.unit || 'unit');
     const [image, setImage] = useState(props.image || '');
     const [location, setLocation] = useState(props.location || [null, null]);
-
-    setLocation(location);
     
     useEffect(() => {
         setItemName(props.itemName);
