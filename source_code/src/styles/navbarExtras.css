@@ -1,0 +1,8 @@
+@media (max-width: 767px) {
+    .on-small-left {
+        margin-left: 5vw;
+    }
+    .on-small-right {
+        margin-right: 2vw;
+    }
+}

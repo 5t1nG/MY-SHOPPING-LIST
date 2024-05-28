@@ -12,7 +12,7 @@ function Search({ updateShelf }) {
                 style={{width: '100%', textAlign: 'center'}}
                 onChange={handleInputChange}
                 placeholder={searchBarMessage}
-                className='form-control'
+                className='form-control search-input border-0 shadow-none'
             />
     );
 }

@@ -1,0 +1,14 @@
+.equal-height {
+    height: 4.5vh;
+}
+
+.search-input {
+    height: 100%;
+    background-color: #f2f2f2;
+}
+
+@media (max-width: 992px) {
+    .equal-height {
+        height: auto;
+    }
+}

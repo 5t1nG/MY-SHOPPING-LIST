@@ -14,7 +14,7 @@ function Basket({ children, removeFromBasket }) {
     const rows = groupItems(basketItems, 2);
 
     return (
-        <Col className='d-flex flex-column align-items-center overflow-auto' style={{backgroundColor: 'lightpink', height: '75vh'}}>
+        <Col className='d-flex flex-column align-items-center overflow-auto' style={{backgroundImage: 'linear-gradient(to bottom right, #ccc, #777)', height: '86vh'}}>
             {rows.map((row, rowIndex) => (
                 <Row className='w-100' key={rowIndex} style={{marginTop: '1rem'}}>
                     {row.map((item, itemIndex) => (

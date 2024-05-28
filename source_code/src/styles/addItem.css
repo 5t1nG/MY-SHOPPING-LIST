@@ -1,0 +1,11 @@
+#addBar {
+    background-image: linear-gradient(to right, #ff7e5f, #feb47b);
+    border: none;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#addBar:hover {
+    background-image: linear-gradient(to right, #d55b3e, #ea9863);
+    opacity: 0.9;
+}

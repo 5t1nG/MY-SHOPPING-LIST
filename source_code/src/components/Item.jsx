@@ -8,7 +8,8 @@ function Item(props) {
     const [price, setPrice] = useState(props.price || '£??');
     const [amount, setAmount] = useState(props.amount || 1);
     const [unit, setUnit] = useState(props.unit || 'unit');
-    const [image, setImage] = useState(props.image || '')
+    const [image, setImage] = useState(props.image || '');
+    const [location, setLocation] = useState(props.location || [null, null]);
 
     useEffect(() => {
         setItemName(props.itemName);
@@ -21,22 +22,28 @@ function Item(props) {
 
 
     return (
-        <Card style={{width: '100%'}}>
+        <Card style={{ width: '100%' }} className='shadow'>
             <CardHeader>
                 <CardTitle>{itemName}</CardTitle>
             </CardHeader>
             <CardBody>
                 <Row>
-                    <Col>
-                        {props.requireQuantity && <h5>{quantity}</h5>}
-                        <h6>{props.requireQuantity ? (`£${(price * quantity).toFixed(2)}`): `£${price.toFixed(2)}` }</h6>
+                    <Col sm={12} md={6}>
+                        {props.requireQuantity && <h5>Quantity: {quantity}</h5>}
+                        <h6>{props.requireQuantity ? (`Total Price: £${(price * quantity).toFixed(2)}`) : `£${price.toFixed(2)}`}</h6>
+                        {props.requireQuantity && <h6>Unit Price: £{price.toFixed(2)}</h6>}
                         <p style={{fontSize: '0.8rem'}}>{unitCalculation(amount, unit, price)}</p>
-                        <Button onClick={props.onButtonClick} className='btn-primary'>{props.buttonText}</Button>
+                        {props.advancedState && <p style={{fontSize: '0.8rem'}}>Location: {location}</p>}
                     </Col>
-                    <Col>
+                    <Col sm={12} md={6}>
                         <div className='image-container'>
-                            <Image src={image} />
+                        <Image src={image} fluid />
                         </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Button style={{marginTop: '1vh'}} onClick={props.onButtonClick} className='btn-primary float-end'>{props.buttonText}</Button>
                     </Col>
                 </Row>
             </CardBody>
