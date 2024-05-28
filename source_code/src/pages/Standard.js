@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import React, {useEffect, useState} from 'react';
 import '../styles/App.css';
-import styles from '../styles/extras.css';
+import '../styles/extras.css';
 import Item from '../components/Item';
 import Shelf from '../components/Shelf';
 import Basket from '../components/Basket';

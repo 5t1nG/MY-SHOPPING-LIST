@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import React, { useState } from 'react';
-import styles from '../styles/addItem.css';
+import '../styles/addItem.css';
 import { FormGroup, FormLabel, Form, Row, Col } from 'react-bootstrap';
 
 function AddItem(props) {

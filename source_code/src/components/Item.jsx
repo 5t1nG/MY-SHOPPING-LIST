@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Card, CardHeader, CardBody, CardImg, CardTitle, Row, Col, Button, Image} from "react-bootstrap";
-import styles from '../styles/cardImages.css';
+import '../styles/cardImages.css';
 
 function Item(props) {
     const [itemName, setItemName] = useState(props.itemName || 'Name Me');
