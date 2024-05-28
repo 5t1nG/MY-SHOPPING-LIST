@@ -20,7 +20,7 @@ function AddItem(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (productName === '' || productPrice === '' || productAmount === '' || productUnit === '' || (productLocation === '' && advancedState) || (productLocation.length !== 2 && advancedState)) {
-            alert('Please review the details you have entered and try again 1 :)')
+            alert('Please review the details you have entered and try again :)')
         } else {
             function testExpression(expression) {
                 const regex = /^[A-Z][0-9]$/;
@@ -36,7 +36,7 @@ function AddItem(props) {
                     props.addToShelf([productLocation[0], productLocation[1]], productName, 1, parseFloat(productPrice), parseFloat(productAmount), productUnit, source);
                     handleClose();
                 } catch (error) {
-                    alert('Please review the details you have entered and try again 2 :)')
+                    alert('Please review the details you have entered and try again :)')
                 }
             } else if (!advancedState){
                 let source = productSource;
@@ -46,7 +46,7 @@ function AddItem(props) {
                 props.addToShelf([null, null], productName, 1, parseFloat(productPrice), parseFloat(productAmount), productUnit, source);
                 handleClose();
             } else {
-                alert('Please review the details you have entered and try again 3 :)')
+                alert('Please review the details you have entered and try again :)')
             }
         }
     };

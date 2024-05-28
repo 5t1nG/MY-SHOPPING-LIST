@@ -4,7 +4,6 @@ import React from 'react';
 import './styles/App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Prototype from "./pages/Prototype";
-import Home from './pages/Home';
 import Item from "./components/Item";
 import Standard from "./pages/Standard";
 
@@ -25,10 +24,9 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route index path='/home' element={<Home />} />
-                <Route index path='' element={<Home />} />
+                <Route index path='' element={<Prototype initialProducts={initialShelfItems} advanced={true}/>} />
                 <Route path='/standard' element={<Standard initialProducts={initialShelfItems} advanced={false}/>} />
-                <Route path='/prototype' element={<Prototype initialProducts={initialShelfItems} advanced={true}/>} />
+                <Route index path='/prototype' element={<Prototype initialProducts={initialShelfItems} advanced={true}/>} />
             </Routes>
         </BrowserRouter>
     );
