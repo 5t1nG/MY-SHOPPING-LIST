@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Card, CardHeader, CardBody, CardImg, CardTitle, Row, Col, Button, Image} from "react-bootstrap";
+import {Card, CardHeader, CardBody, CardTitle, Row, Col, Button, Image} from "react-bootstrap";
 import '../styles/cardImages.css';
 
 function Item(props) {
@@ -11,6 +11,8 @@ function Item(props) {
     const [image, setImage] = useState(props.image || '');
     const [location, setLocation] = useState(props.location || [null, null]);
 
+    setLocation(location);
+    
     useEffect(() => {
         setItemName(props.itemName);
         setQuantity(props.quantity);
